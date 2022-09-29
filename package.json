@@ -1,0 +1,62 @@
+{
+  "name": "basedUI",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/basedUI.js",
+  "style": "lib/index.css",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es"
+  ],
+  "scripts": {
+    "dev": "vant-cli dev",
+    "test": "vant-cli test",
+    "lint": "vant-cli lint",
+    "build": "vant-cli build",
+    "prepare": "husky install",
+    "release": "vant-cli release",
+    "build-site": "vant-cli build-site"
+  },
+  "author": "",
+  "husky": {
+    "hooks": {
+      "pre-commit": "nano-staged",
+      "commit-msg": "vant-cli commit-lint"
+    }
+  },
+  "nano-staged": {
+    "*.md": "prettier --write",
+    "*.{ts,tsx,js,vue,less,scss}": "prettier --write",
+    "*.{ts,tsx,js,vue}": "eslint --fix"
+  },
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "devDependencies": {
+    "@vant/cli": "^2.11.11",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "vue": "^2.7.10",
+    "vue-template-compiler": "^2.7.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "@vant"
+    ]
+  },
+  "stylelint": {
+    "extends": [
+      "@vant/stylelint-config"
+    ]
+  },
+  "prettier": {
+    "singleQuote": true
+  },
+  "browserslist": [
+    "Chrome >= 51",
+    "iOS >= 10"
+  ]
+}
